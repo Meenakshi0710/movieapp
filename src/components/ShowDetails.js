@@ -23,7 +23,7 @@ const ShowDetails = () => {
       color : "rgba(20,20,20,0.1)",
       activeColor :"#FBA92C",
       size : window.innerWidth< 600? 20:25,
-      value: rating,
+      value: 5.5,
       isHalf:true
     }
     
@@ -140,7 +140,7 @@ const ShowDetails = () => {
   <div className="row g-0">
   
     <div className="col-md-4">
-      <img src="https://static.tvmaze.com/uploads/images/medium_portrait/425/1064746.jpg" className="img-fluid rounded-start" alt="..."/>
+      <img src={article.image?article.image.medium:"https://static.tvmaze.com/uploads/images/medium_portrait/33/82953.jpg"} className="img-fluid rounded-start" alt="..."/>
     </div>
     <div className="col-md-8">
       <div className="card-body">
