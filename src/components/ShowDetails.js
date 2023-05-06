@@ -29,14 +29,17 @@ const ShowDetails = () => {
     
   const registerUser=()=>{
     ref.current.click();
-    console.log("in updatenode")
+    
+   
   }
   
     const handleClick = () => {
-      navigate(article.url);
+      console.log(euser);
+      localStorage.setItem("currentUser",JSON.stringify(euser));
+      window.open(`${article.url}`,"_self");
    }
    const handleChange = (e) =>{
-    setEuser({[e.target.name]: e.target.value})
+    setEuser({...euser,[e.target.name]: e.target.value})
 
    }
     const fetchDetails = async () =>{
@@ -103,15 +106,15 @@ const ShowDetails = () => {
 </div>
 <div className="mb-3">
   <label htmlFor="description" className="form-label">User name</label>
-  <input type="text" className="form-control" id="user" name = "user"  onChange = {handleChange}  minLength = {5} required/>
+  <input type="text" className="form-control" id="user" name = "user" value = {euser.user} onChange = {handleChange}  minLength = {5} required/>
 </div>
 <div className="mb-3">
   <label htmlFor="tag" className="form-label">Email</label>
-  <input type="text" className="form-control" id="email" name = "email"  onChange = {handleChange} />
+  <input type="text" className="form-control" id="email" name = "email" value = {euser.email} onChange = {handleChange} />
 </div>
 <div className="mb-3">
   <label htmlFor="tag" className="form-label">Password</label>
-  <input type="text" className="form-control" id="password" name = "password"  onChange = {handleChange} />
+  <input type="text" className="form-control" id="password" name = "password" value = {euser.password} onChange = {handleChange} />
 </div>
 </form>
             </div>
@@ -146,7 +149,7 @@ const ShowDetails = () => {
       <div className="card-body">
         
         <p className="card-text">{article.summary}</p>
-        <button type="button" class="btn btn-primary" onClick = {registerUser}>Watch Now</button>
+        <button type="button" className="btn btn-primary" onClick = {registerUser}>Watch Now</button>
       </div></div> 
   </div>
 </div>
